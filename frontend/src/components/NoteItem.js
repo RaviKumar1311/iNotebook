@@ -1,10 +1,13 @@
 import React,{useContext} from 'react'
 import noteContext from '../context/notes/noteContext'
+import alertContext from '../context/components/alertContext';
 
 const NoteItem = (props) => {
   const {note,updateNote} = props;
   const context = useContext(noteContext);
   const {deleteNote} = context;
+  const contextAlert = useContext(alertContext);
+  const {showAlert} = contextAlert;
   return (
     <div className='col-md-3'>
       <div className="card my-3"  >
@@ -15,7 +18,7 @@ const NoteItem = (props) => {
             <h5 className="card-title">{note.title}</h5>
             <div>
             <i className="fa-regular fa-trash-can mx-2" onClick={()=>{deleteNote(note._id);
-              props.showAlert("Deleted Successfully","success");
+              showAlert("Deleted Successfully","success");
             }}></i>
             <i className="fa-regular fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i>
             </div>

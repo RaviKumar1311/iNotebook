@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import alertContext from '../context/components/alertContext';
 import { postApiWithoutToken } from '../utils/apiCalls';
 
-const Signup = (props) => {
+const Signup = () => {
+  const context = useContext(alertContext);
+  const {showAlert} = context;
   const [credentials,setCredentials] = useState({name:"",email:"",password:"",password2:""});
   let history=useNavigate();
   const handleChange = (e) =>{
@@ -18,10 +21,10 @@ const Signup = (props) => {
     console.log(response);
     if(response.success){
       localStorage.setItem('token',response.authToken);
-      props.showAlert("Account Created Successfully","success");
+      showAlert("Account Created Successfully","success");
       history('/');
     }else{
-        props.showAlert("Invalid Credentials","danger");
+      showAlert("Invalid Credentials","danger");
     }
   }
 

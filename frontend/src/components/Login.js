@@ -1,8 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
+import alertContext from '../context/components/alertContext'
 import { postApiWithoutToken } from '../utils/apiCalls'
 
-const Login = (props) => {
+const Login = () => {
+
+    const contextAlert = useContext(alertContext);
+    const {showAlert} = contextAlert;
     
     const [credentials,setCredentials] = useState({email:"",password:""})
     let history=useNavigate();
@@ -18,10 +22,10 @@ const Login = (props) => {
         console.log(response)
         if(response.success){
             localStorage.setItem('token',response.authToken);
-            props.showAlert("Logged In Successfully","success");
+            showAlert("Logged In Successfully","success");
             history('/');
         }else{
-            props.showAlert("Invalid Details","danger");
+            showAlert("Invalid Details","danger");
         }
     }
     return (
