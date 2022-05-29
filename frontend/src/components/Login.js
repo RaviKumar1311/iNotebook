@@ -30,7 +30,7 @@ const Login = () => {
     }
     return (
         <div className='mt-3 login'>
-        <h1>Login</h1>
+        <h1 >Login</h1>
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
