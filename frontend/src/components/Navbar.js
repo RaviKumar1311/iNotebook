@@ -1,21 +1,13 @@
-import React,{useContext} from 'react'
-import alertContext from '../context/components/alertContext'
-import { Link, useLocation,useNavigate } from 'react-router-dom'
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
-  const context = useContext(alertContext);
-  const {showAlert} = context;
+
   let location = useLocation();
-  let history=useNavigate()
-  const handleLogout=()=>{
-    localStorage.removeItem('token');
-    showAlert("Logged Out Successfully","success")
-    history('/login')
-  }
-  
+    
   return (
     <div>
-  <nav className="navbar navbar-expand-lg navbar-dark bg-warning ps-3">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-warning ps-3 py-2">
   <div className="container-fluid">
     <Link className="navbar-brand" to="/"><i className="fa-regular fa-clipboard"/> iNotebook</Link>
     <button className="navbar-toggler" type="button" >
@@ -33,11 +25,15 @@ const Navbar = () => {
       {
         !localStorage.getItem('token')?  
       <div className="d-flex">
-        <Link className="btn btn-sm btn-light mx-1" to='/login' role='button'>Login</Link>
-        <Link className="btn btn-sm btn-light mx-1" to='/signup' role='button'>SignUp</Link>
+        <Link className="btn btn-sm navbar-button mx-1" to='/login' role='button'>Login</Link>
+        <Link className="btn btn-sm navbar-button mx-1" to='/signup' role='button'>SignUp</Link>
       </div>
       :
-      <button className='btn btn-sm btn-light mx-1' onClick={handleLogout}>Logout</button>
+      <div className='d-flex'>
+        <a  data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <img src='./profile.png' className='me-3 align-middle' style={{height:"40px",width:"auto"}} alt='Profile-avatar'/>
+        </a>
+      </div>
       }
     </div>
   </div>

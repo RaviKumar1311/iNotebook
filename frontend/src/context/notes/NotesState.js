@@ -6,12 +6,12 @@ const NoteState = (props) =>{
 
     const notesInitial = []
     const [notes,setNotes] = useState(notesInitial)
+    const [userData,setUserData] = useState()
     
     // Get all Notes
     const getNotes = async() =>{
-      console.log("Getting all Notes...")
       const response = await getApi(`api/notes/fetchallnotes`);
-      console.log(response)
+      console.log("Getting all Notes...", response)
       setNotes(response);
     }
 
@@ -42,8 +42,9 @@ const NoteState = (props) =>{
       // if(response._id){
       //   getNotes();
       // }
-      // -------------------------------------------------------------------------------------------------------
+      // ------------------------------------------------------------------------------------------------------
 
+      // --------------------------------- updating list without hit api again --------------------------------
       let newNotes = JSON.parse(JSON.stringify(notes))
       for(let index=0; index<newNotes.length; index++){
         const element=newNotes[index];
@@ -57,8 +58,17 @@ const NoteState = (props) =>{
       setNotes(newNotes);
     }
 
+    const fetchUserInfo=async()=>{
+      const response = await postApi(`api/auth/getuser`);
+      const data=response?.user;
+      if(data){
+        console.log("Getting userData...",data)
+        setUserData(data)
+      }
+  }
+
     return (
-        <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes}}>
+        <NoteContext.Provider value={{notes,addNote,deleteNote,editNote,getNotes,fetchUserInfo,userData}}>
             {props.children}
         </NoteContext.Provider>
     )

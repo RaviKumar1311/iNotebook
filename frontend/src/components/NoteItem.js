@@ -10,12 +10,12 @@ const NoteItem = (props) => {
   const {showAlert} = contextAlert;
   return (
     <div className='col-md-3'>
-      <div className="card my-3"  >
+      <div className="card my-3 note"  >
   
         <div className="card-body">
         <div className='d-flex  justify-content-between'>
 
-            <h5 className="card-title">{note.title}</h5>
+            <h1 className="card-title">{note.title}</h1>
             <div>
             <i className="fa-regular fa-trash-can mx-2" onClick={()=>{deleteNote(note._id);
               showAlert("Deleted Successfully","success");

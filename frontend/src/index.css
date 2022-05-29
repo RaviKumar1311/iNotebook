@@ -1,8 +1,10 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    background-image: url("https://transparenttextures.com/patterns/gplay.png");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,4 +16,176 @@ code {
 
 i{
   cursor: pointer;
+}
+
+form.create-note{
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form.create-note input,
+form.create-note textarea,
+form.edit-note input,
+form.edit-note textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: 0;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+
+.profile_name {
+  border: none;
+  outline: 0;
+  resize: none;
+}
+
+form.create-note button,
+form.edit-note button,
+.login button{
+  background-color: #f5ba13;
+  color: white;
+}
+
+form.create-note input:focus,
+form.create-note textarea:focus,
+.profile_name:focus,
+.navbar-button:focus
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 ,
+.profile_card h1{
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p,
+.profile_card p,
+.login p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.login input{
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: 0;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+  box-shadow: inset 0 -1px 0 0 #f5ba13;
+}
+.login input:focus,
+form.edit-note input[type='text']:focus,
+form.edit-note textarea:focus
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: inset 0 -1px 0 0 #f5ba13;
+  
+}
+.add_note-button {
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #f5ba13;
+}
+
+.navbar-button {
+  color: #f5ba13;
+  font-weight: 600;
+  width: 5rem;
+  height:auto;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+}
+
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
+}
+form.edit-note {
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.login {
+
+  width: 400px;
+  margin:  auto ;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.login h1{
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.profile_card {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 350px;
+  margin: 16px;
+  float: left;
+}
+
+.about-card{
+  position: relative;
+  width: 480px;
+  bottom:220px;
+  background: #fff;
+  padding: 15px;
+  margin-left:auto;
+  margin-right: auto;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.about-section{
+  position: relative;
+  bottom:65px;
+  margin:0px;
+  padding:0px;
+  background: #fff;
+  height: 15rem;
+  width:auto
 }
